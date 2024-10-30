@@ -1,0 +1,22 @@
+<h2 class="text-center mb-4">All User </h2>
+
+
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-sm">
+    <thead class="thead-dark">
+      <tr class="text-center">
+        <th scope="col">FirstName</th>
+        <th scope="col">lastName</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of allusers" class="align-middle text-center">
+        <td>{{item.firstName}}</td>
+        <td>{{item.lastName}}</td>
+        <td>{{item.email}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

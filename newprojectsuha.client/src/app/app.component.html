@@ -1,0 +1,8 @@
+
+<app-pre-loader></app-pre-loader>
+
+<app-nav-bar *ngIf="email != 'admin@gmail.com'"></app-nav-bar>
+
+<router-outlet></router-outlet>
+
+<app-footer *ngIf="email != 'admin@gmail.com'"></app-footer>

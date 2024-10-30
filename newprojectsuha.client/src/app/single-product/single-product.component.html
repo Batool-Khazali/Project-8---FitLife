@@ -1,0 +1,85 @@
+<!-- search area -->
+<div class="search-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<span class="close-btn"><i class="fas fa-window-close"></i></span>
+				<div class="search-bar">
+					<div class="search-bar-tablecell">
+						<h3>Search For:</h3>
+						<input type="text" placeholder="Keywords">
+						<button type="submit">Search <i class="fas fa-search"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end search arewa -->
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="breadcrumb-text">
+					<p>See more Details</p>
+					<h1>Single Product</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end breadcrumb section -->
+<!-- single product -->
+
+<div class="single-product mt-150 mb-150">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<div class="single-product-img">
+					<img src="https://localhost:7286/api/Products/getImages/{{ product.image }}" alt="{{ product.name }}">
+				</div>
+			</div>
+			<div class="col-md-7">
+				<div class="single-product-content">
+					<h3>{{ product.name }}</h3>
+					<p class="single-product-pricing">{{ product.price }}$</p>
+					<p>{{ product.description }}</p>
+					<div class="single-product-form">
+						<input type="number" [(ngModel)]="quantity" name="quantity" placeholder="0" min="1"> &nbsp;
+						<a class="cart-btn" (click)="addToCart(product.id, quantity)"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end single product -->
+<!-- more products -->
+<div class="more-products mb-150">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="section-title">
+					<h3><span class="orange-text">Related</span> Products</h3>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+
+
+
+			<div class="col-lg-4 col-md-6 text-center"  *ngFor="let product of relatedProducts">
+				<div class="single-product-item">
+					<div class="product-image">
+						<img src="https://localhost:7286/api/Products/getImages/{{ product.image }}" alt="{{ product.name }}" style="width: 300px; height: 300px; object-fit: cover;"(click)="navigateToProduct(product.id)">
+					</div>
+					<a [routerLink]="['/SingleProduct', product.id]" (click)="navigateToProduct(product.id)">{{ product.name }}</a>
+					<p class="product-price">{{ product.price }}$</p>
+					<a class="cart-btn" (click)="addToCart(product.id, quantity)"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

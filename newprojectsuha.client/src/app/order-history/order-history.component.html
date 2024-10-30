@@ -1,0 +1,117 @@
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="breadcrumb-text">
+          <h1>Order History</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end breadcrumb section -->
+
+
+
+<div class="cart-section mt-150 mb-150" *ngIf="userId != ''">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12 col-md-12">
+        <div class="cart-table-wrap">
+
+          <table class="table table-bordered table-hover">
+            <thead class="cart-table-head">
+              <tr class="table-head-row">
+                <th scope="col">Order ID</th>
+                <th scope="col">Total Amount</th>
+                <th scope="col">Payment Method</th>
+                <th scope="col">Order Date</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of orders">
+                <td>{{ order.id }}</td>
+                <td>${{ order.total }}</td>
+                <td>{{ order.paymentMethod }}</td>
+                <td>{{ order.date | date }}</td>
+                <td>
+                  <!-- Button to open the modal -->
+                  <button class="btn btn-info" (click)="getOrderItems(order.id)" data-toggle="modal" data-target="#orderItemsModal">View Items</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Modal for displaying order items -->
+          <div class="modal fade" id="orderItemsModal" tabindex="-1" role="dialog" aria-labelledby="orderItemsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="orderItemsModalLabel">Order Items</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
+                      <tr class="table-head-row">
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of selectedOrderItems">
+                        <td>
+                          <img src="https://localhost:7286/api/Images/getImages/{{item.image}}"
+                               alt="{{item.name}}" class="img-fluid" style="max-width: 100px;" />
+                        </td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.price | currency }}</td>
+                        <td>{{ item.total | currency }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact-from-section mt-150 mb-150">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mb-5 mb-lg-0">
+        <div class="form-title">
+          <h2>We love to share your testimonial with us!</h2>
+          <p style="text-align:start">We love to hear from our customers! Your feedback helps us grow and improve, so feel free to share your experience with us. Whether it's about the service you received, the quality of our products, or how we helped make a difference, your words matter. Tell us how we did and let others know why they should choose us. We're committed to providing the best for you, and your testimonial will help others understand what they can expect. Thank you for being a part of our journey!"</p>
+        </div>
+        <div id="form_status"></div>
+        <div class="contact-form">
+          <form #contactForm="ngForm" (ngSubmit)="submitTestimonial(contactForm.value)">
+
+            <p><textarea name="Content" cols="30" rows="10" placeholder="Message" ngModel required></textarea></p>
+
+            <p><input type="submit" value="Submit"></p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

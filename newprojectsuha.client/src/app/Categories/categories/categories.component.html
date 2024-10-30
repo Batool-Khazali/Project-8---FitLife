@@ -1,0 +1,52 @@
+
+<!-- Button to add categories -->
+<button class="btn btn-add-product" (click)="createNewCategory()">
+  <span class="mdi mdi-plus mdi-24px"></span>
+  <span class="add-product-text">Add Category</span>
+</button>
+
+<!-- Table -->
+<table class="table mb-0 text-nowrap table-hover table-centered table-with-checkbox">
+  <!-- Table Head -->
+  <thead class="table-light">
+    <tr>
+      <th>Category</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categories">
+      <td>
+        <a href="#" class="text-inherit">
+          <div class="d-flex align-items-center flex-row gap-3">
+            <div>
+              <h5>{{category.id}}   &nbsp;&nbsp;&nbsp;&nbsp;</h5>
+            </div>
+            <div class="">
+              <h5 class="mb-0 text-primary-hover">{{ category.name }}</h5>
+            </div>
+          </div>
+        </a>
+      </td>
+
+      <td>
+        <div style="display: flex; gap: 10px;">
+          <button class="btn btn-edit" (click)="editCategory(category.id)">
+            <span class="mdi mdi-pencil mdi-24px"></span>
+            <span class="mdi mdi-pencil-outline mdi-24px"></span>
+            <span>Edit</span>
+          </button>
+
+          <button class="btn btn-delete" (click)="deleteCategory(category.id)">
+            <span class="mdi mdi-delete mdi-24px"></span>
+            <span class="mdi mdi-delete-empty mdi-24px"></span>
+            <span>Delete</span>
+          </button>
+        </div>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+]

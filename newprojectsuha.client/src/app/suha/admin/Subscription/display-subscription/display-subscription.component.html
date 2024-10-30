@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Subscription List</h2>
+
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Duration</th>
+          <th scope="col">Final Price</th>
+          <th scope="col">Class Name</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let subscription of subscriptions">
+          <td>{{ subscription.duration }} months</td>
+          <td>${{ subscription.finalPrice }}</td>
+          <td>{{ subscription.name }}</td>
+          <td>
+            <a routerLink="/dash/Update-Subscription/{{subscription.id}}" class="btn btn-primary btn-sm">Edit</a>
+            <button (click)="deleteSubscription(subscription.id)" class="btn btn-danger btn-sm">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="subscriptions.length === 0 && !errorMessage" class="alert alert-info">
+    No subscriptions found.
+  </div>
+
+  <button class="btn btn-success mt-3" (click)="createNewSubscription()">Add New Subscription</button>
+</div>

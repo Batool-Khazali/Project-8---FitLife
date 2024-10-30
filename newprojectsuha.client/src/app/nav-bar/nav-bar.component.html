@@ -1,0 +1,72 @@
+
+<div class="top-header-area" id="sticker">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 text-center">
+        <div class="main-menu-wrap">
+          <!-- logo -->
+          <div class="site-logo">
+            <a href="index.html">
+              <img src="assets/img/logo.png" alt=""  style="height: 50px;">
+            </a>
+          </div>
+          <!-- logo -->
+          <!-- menu start -->
+          <nav class="main-menu">
+            <ul>
+              <li >
+                <a routerLink="/">Home</a>
+              </li>
+
+              <li>
+                <a routerLink="gym">GYM</a>
+                <ul class="sub-menu">
+                  <li><a routerLink="/GymAndClassItems/GYM">Local GYM</a></li>
+                  <li><a routerLink="/GymAndClassItems/Class">Fitness Class</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a routerLink="news.html">Nutrition</a>
+                <ul class="sub-menu">
+                  <li><a routerLink="/RecipesCategories">Recipes</a></li>
+                  <li><a routerLink="/Tips">Tips</a></li>
+                </ul>
+              </li>
+
+              <li><a routerLink="/Shop">Shop</a></li>
+              <li><a routerLink="/About">About</a></li>
+              <li><a routerLink="/Contact">Contact</a></li>
+
+              <li>
+                <ul>
+                  <li> <a class="shopping-cart" routerLink="cart"><i class="fas fa-shopping-cart"></i></a></li>
+
+                  <li><a routerLink="/LogIn" *ngIf="UserId == ''">LogIn</a></li>
+
+                  <li *ngIf="UserId != ''">
+                    <div>
+                      <a><i class="fas fa-user"></i></a>
+                      <ul class="sub-menu">
+                        <li><a routerLink="/myProfile">My Profile</a></li>
+                        <li><a routerLink="orderhistory">My Orders</a></li>
+                        <li><a routerLink="usersubscriptions">My Subscriptions</a></li>
+                        <li><a (click)="logout()">Log Out</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+          </nav>
+
+          <div class="mobile-menu"></div>
+          <!-- menu end -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end header -->
+

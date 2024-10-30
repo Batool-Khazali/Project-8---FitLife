@@ -1,0 +1,64 @@
+<section class="vh-100 bg-image"
+          style="background-color: #07212e">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h3 class="text-uppercase text-center mb-5">Login Now</h3>
+
+              <form #lognUser="ngForm" (ngSubmit)="loginNewUser(lognUser.value)">
+
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" placeholder="Email" ngModel name="Email" />
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" placeholder="Password" ngModel name="Password" />
+                </div>
+
+
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit" data-mdb-button-init
+                          data-mdb-ripple-init class="btn  btn-block   boxed-btn">
+                    LogIn
+                  </button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">
+                  Have not an account? <a routerLink="/Register"
+                                          class="fw-bold text-body"><u>Register here</u></a>
+                </p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<style>
+
+  .boxed-btn {
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    background-color: #F28123;
+    color: #fff;
+    padding: 10px 20px;
+  }
+</style>
